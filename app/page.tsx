@@ -70,10 +70,7 @@ export default function Page() {
 
           <div className="md:col-span-5 anim-settle" style={{ ['--anim-delay' as any]: '560ms' }}>
             <div className="photo-paper aspect-[3/4]">
-              <img
-                src="https://images.unsplash.com/photo-1416879595882-3373a0480b5b?auto=format&fit=crop&w=700&q=80"
-                alt="Mature landscaped property"
-              />
+              <RadoHero />
               <div className="absolute bottom-0 left-0 right-0 px-3 py-3 flex items-center justify-between text-xs">
                 <span className="font-display italic text-umber-500">Spring Hill</span>
                 <span className="font-display tracking-widest uppercase text-terra-700 text-[0.65rem]">Est. 1997</span>
@@ -300,6 +297,138 @@ function Row({ label, value, href }: { label: string; value: string; href?: stri
         {href ? <a href={href} className="hover:text-terra-300 transition">{value}</a> : value}
       </dd>
     </div>
+  );
+}
+
+/**
+ * Hero illustration: an established Italian-family Florida property.
+ * Mediterranean villa silhouette, mature palms, lush striped lawn, terracotta accents.
+ * Rado brand palette: forest green / cream / terracotta / umber.
+ */
+function RadoHero() {
+  return (
+    <svg
+      viewBox="0 0 400 533"
+      preserveAspectRatio="xMidYMid slice"
+      className="block w-full h-full"
+      role="img"
+      aria-label="An established Florida property cared for by the Rado family since 1997"
+    >
+      <defs>
+        <linearGradient id="rd-sky" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%"  stopColor="#F5EFD9" />
+          <stop offset="55%" stopColor="#EFE5C5" />
+          <stop offset="100%" stopColor="#E2D2A6" />
+        </linearGradient>
+        <linearGradient id="rd-lawn" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%"  stopColor="#3D6240" />
+          <stop offset="100%" stopColor="#1F3D2B" />
+        </linearGradient>
+        <radialGradient id="rd-sun" cx="0.5" cy="0.5" r="0.5">
+          <stop offset="0%"  stopColor="#E6BC93" />
+          <stop offset="60%" stopColor="#C68A6F" />
+          <stop offset="100%" stopColor="#C68A6F" stopOpacity="0" />
+        </radialGradient>
+      </defs>
+
+      {/* sky */}
+      <rect width="400" height="280" fill="url(#rd-sky)" />
+
+      {/* soft sun */}
+      <circle cx="80" cy="100" r="55" fill="url(#rd-sun)" opacity="0.85" />
+      <circle cx="80" cy="100" r="18" fill="#C68A6F" opacity="0.5" />
+
+      {/* distant cypress / oak treeline */}
+      <path
+        d="M0 235 Q 30 200 70 225 Q 110 195 160 225 Q 210 210 260 230 Q 310 215 360 230 L 400 232 L 400 280 L 0 280 Z"
+        fill="#3D6240" opacity="0.45"
+      />
+
+      {/* MEDITERRANEAN VILLA — set back, terracotta roof */}
+      <g transform="translate(165, 200)">
+        {/* tile roof */}
+        <polygon points="0,28 40,8 80,28" fill="#A65A3F" />
+        <polygon points="0,28 80,28 80,32 0,32" fill="#7E4128" />
+        {/* roof tiles texture */}
+        <line x1="6"  y1="24" x2="6"  y2="18" stroke="#7E4128" strokeWidth="1" />
+        <line x1="14" y1="20" x2="14" y2="14" stroke="#7E4128" strokeWidth="1" />
+        <line x1="22" y1="16" x2="22" y2="10" stroke="#7E4128" strokeWidth="1" />
+        <line x1="58" y1="16" x2="58" y2="10" stroke="#7E4128" strokeWidth="1" />
+        <line x1="66" y1="20" x2="66" y2="14" stroke="#7E4128" strokeWidth="1" />
+        <line x1="74" y1="24" x2="74" y2="18" stroke="#7E4128" strokeWidth="1" />
+        {/* villa body — cream stucco */}
+        <rect x="4" y="32" width="72" height="38" fill="#EAE0C6" />
+        <rect x="4" y="32" width="72" height="38" fill="rgba(58,42,31,0.04)" />
+        {/* arched door */}
+        <path d="M34 70 L 34 56 A 6 6 0 0 1 46 56 L 46 70 Z" fill="#3A2A1F" />
+        {/* windows with shutters */}
+        <rect x="12" y="44" width="10" height="12" fill="#3A2A1F" opacity="0.85" />
+        <rect x="58" y="44" width="10" height="12" fill="#3A2A1F" opacity="0.85" />
+        {/* shutters */}
+        <rect x="8"  y="44" width="3" height="12" fill="#A65A3F" />
+        <rect x="23" y="44" width="3" height="12" fill="#A65A3F" />
+        <rect x="54" y="44" width="3" height="12" fill="#A65A3F" />
+        <rect x="69" y="44" width="3" height="12" fill="#A65A3F" />
+      </g>
+
+      {/* TALL PALM left foreground */}
+      <g transform="translate(60, 200)">
+        <path d="M0 90 Q 2 50 -1 0" stroke="#3A2A1F" strokeWidth="4" fill="none" />
+        <path d="M-1 2 Q -28 -10 -42 -2"   stroke="#1F3D2B" strokeWidth="4" fill="none" strokeLinecap="round" />
+        <path d="M-1 2 Q  26 -10  44 -2"   stroke="#1F3D2B" strokeWidth="4" fill="none" strokeLinecap="round" />
+        <path d="M-1 0 Q -22 -28 -16 -38"  stroke="#1F3D2B" strokeWidth="4" fill="none" strokeLinecap="round" />
+        <path d="M-1 0 Q  20 -28  14 -38"  stroke="#1F3D2B" strokeWidth="4" fill="none" strokeLinecap="round" />
+        <path d="M-1 -2 Q  -4 -30  2 -42"  stroke="#1F3D2B" strokeWidth="4" fill="none" strokeLinecap="round" />
+      </g>
+
+      {/* TALL PALM right foreground */}
+      <g transform="translate(346, 218)">
+        <path d="M0 80 Q -2 40 1 0" stroke="#3A2A1F" strokeWidth="4" fill="none" />
+        <path d="M1 2 Q -24 -8 -38 0"    stroke="#1F3D2B" strokeWidth="4" fill="none" strokeLinecap="round" />
+        <path d="M1 2 Q  22 -10  38 -4"  stroke="#1F3D2B" strokeWidth="4" fill="none" strokeLinecap="round" />
+        <path d="M1 0 Q -18 -26 -14 -36" stroke="#1F3D2B" strokeWidth="4" fill="none" strokeLinecap="round" />
+        <path d="M1 0 Q  18 -28  10 -38" stroke="#1F3D2B" strokeWidth="4" fill="none" strokeLinecap="round" />
+        <path d="M1 -2 Q  0 -30  6 -42"  stroke="#1F3D2B" strokeWidth="4" fill="none" strokeLinecap="round" />
+      </g>
+
+      {/* hedge row in front of villa */}
+      <g>
+        <ellipse cx="170" cy="278" rx="14" ry="9" fill="#2A4A30" />
+        <ellipse cx="195" cy="280" rx="16" ry="10" fill="#2A4A30" />
+        <ellipse cx="222" cy="278" rx="14" ry="9" fill="#2A4A30" />
+        <ellipse cx="248" cy="280" rx="14" ry="9" fill="#2A4A30" />
+      </g>
+
+      {/* LAWN — foreground, fills lower section */}
+      <rect x="0" y="280" width="400" height="253" fill="url(#rd-lawn)" />
+
+      {/* mowed stripes */}
+      <g>
+        <polygon points="0,280 400,280 400,300 0,300" fill="rgba(255,255,255,0.045)" />
+        <polygon points="0,320 400,320 400,344 0,344" fill="rgba(255,255,255,0.045)" />
+        <polygon points="0,366 400,366 400,394 0,394" fill="rgba(255,255,255,0.045)" />
+        <polygon points="0,418 400,418 400,448 0,448" fill="rgba(255,255,255,0.045)" />
+        <polygon points="0,476 400,476 400,510 0,510" fill="rgba(255,255,255,0.045)" />
+      </g>
+
+      {/* curved garden bed border */}
+      <path d="M 0 320 Q 100 295 200 318 T 400 320 L 400 330 Q 200 308 0 332 Z" fill="#A65A3F" opacity="0.6" />
+
+      {/* small flowering plants on bed border */}
+      {[40, 120, 200, 280, 360].map((cx, i) => (
+        <g key={i}>
+          <circle cx={cx} cy={i === 2 ? 313 : 318} r="3.5" fill="#C68A6F" />
+          <circle cx={cx + 4} cy={i === 2 ? 316 : 321} r="2.5" fill="#A65A3F" />
+        </g>
+      ))}
+
+      {/* tiny grass blade silhouettes at the bottom edge */}
+      <g fill="#142819">
+        {Array.from({ length: 80 }).map((_, i) => (
+          <rect key={i} x={i * 5 + (i % 2 ? 1 : 0)} y={528 - (i % 4)} width="1.3" height={(i % 3) + 4} />
+        ))}
+      </g>
+    </svg>
   );
 }
 
