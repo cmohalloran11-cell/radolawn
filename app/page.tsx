@@ -69,9 +69,16 @@ export default function Page() {
           </div>
 
           <div className="md:col-span-5 anim-settle" style={{ ['--anim-delay' as any]: '560ms' }}>
-            <div className="photo-paper aspect-[3/4]">
-              <RadoHero />
-              <div className="absolute bottom-0 left-0 right-0 px-3 py-3 flex items-center justify-between text-xs">
+            <div className="photo-paper aspect-[3/4] overflow-hidden">
+              <iframe
+                src="https://maps.google.com/maps?q=15422+County+Line+Rd,+Spring+Hill,+FL+34610&t=k&z=18&output=embed"
+                className="block w-full h-full"
+                style={{ border: 0, filter: 'saturate(0.9) contrast(0.95)' }}
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                title="Aerial view of Rado Lawn Service in Spring Hill, FL"
+              />
+              <div className="absolute bottom-0 left-0 right-0 px-3 py-3 flex items-center justify-between text-xs bg-cream/95">
                 <span className="font-display italic text-umber-500">Spring Hill</span>
                 <span className="font-display tracking-widest uppercase text-terra-700 text-[0.65rem]">Est. 1997</span>
               </div>
@@ -92,7 +99,7 @@ export default function Page() {
         <div className="max-w-6xl mx-auto px-6 py-20 md:py-24">
           <div className="grid md:grid-cols-12 gap-8 items-end">
             <div className="md:col-span-7">
-              <div data-reveal className="eyebrow">I · Our Work</div>
+              <div data-reveal className="eyebrow">Our Work</div>
               <h2 data-reveal className="mt-3 font-display font-semibold text-4xl md:text-6xl text-forest-900 leading-tight">
                 What the brothers do.
               </h2>
@@ -106,18 +113,17 @@ export default function Page() {
 
           <div className="mt-12 grid md:grid-cols-2 gap-x-12 gap-y-2">
             {[
-              { n: 'I',   t: 'Lawn Maintenance',          d: 'Weekly or biweekly mowing and edging.' },
-              { n: 'II',  t: 'Landscape Design',          d: 'Full installations, planting plans.' },
-              { n: 'III', t: 'Garden Beds & Curbing',     d: 'Bed shaping, mulch, ornamental rock.' },
-              { n: 'IV',  t: 'Sod & Plantings',           d: 'Lawn replacement and new plantings.' },
-              { n: 'V',   t: 'Tree & Palm Service',       d: 'Trimming and removal.' },
-              { n: 'VI',  t: 'HOA & Community Contracts', d: 'Multi-property maintenance.' },
+              { t: 'Lawn Maintenance',          d: 'Weekly or biweekly mowing and edging.' },
+              { t: 'Landscape Design',          d: 'Full installations, planting plans.' },
+              { t: 'Garden Beds & Curbing',     d: 'Bed shaping, mulch, ornamental rock.' },
+              { t: 'Sod & Plantings',           d: 'Lawn replacement and new plantings.' },
+              { t: 'Tree & Palm Service',       d: 'Trimming and removal.' },
+              { t: 'HOA & Community Contracts', d: 'Multi-property maintenance.' },
             ].map((s, i) => (
               <div key={s.t} data-reveal style={{ ['--reveal-delay' as any]: `${i * 80}ms` }}
                 className="svc-line py-6 grid grid-cols-12 gap-4 items-baseline hairline">
-                <div className="col-span-1 numeral text-terra-700 text-xl italic">{s.n}</div>
                 <div className="col-span-5 font-display font-semibold text-xl text-forest-900">{s.t}</div>
-                <div className="col-span-6 serif-body italic text-umber-500">{s.d}</div>
+                <div className="col-span-7 serif-body italic text-umber-500">{s.d}</div>
               </div>
             ))}
             <div className="hairline col-span-full" />
@@ -132,7 +138,7 @@ export default function Page() {
         </div>
         <div className="relative max-w-6xl mx-auto px-6 py-24 md:py-28 grid md:grid-cols-12 gap-14 items-start">
           <div className="md:col-span-5">
-            <div data-reveal className="eyebrow !text-terra-300">II · The Family</div>
+            <div data-reveal className="eyebrow !text-terra-300">The Family</div>
             <h2 data-reveal className="mt-5 font-display font-semibold text-5xl md:text-6xl text-cream leading-[1.02]">
               <span className="italic">Michele</span> &amp;<br /><span className="italic">Domenico.</span>
             </h2>
@@ -169,7 +175,7 @@ export default function Page() {
           <div className="ornament-divider mb-8">
             <LeafSpray className="w-10 h-10 text-terra-500" />
           </div>
-          <div data-reveal className="eyebrow text-center">III · Communities</div>
+          <div data-reveal className="eyebrow text-center">Communities</div>
           <h2 data-reveal className="mt-4 text-center font-display font-semibold text-4xl md:text-5xl text-forest-900 leading-tight">
             HOA &amp; community contracts.
           </h2>
@@ -185,7 +191,7 @@ export default function Page() {
       {/* ── Reviews ── */}
       <section className="bg-cream-200/50">
         <div className="max-w-5xl mx-auto px-6 py-20">
-          <div data-reveal className="eyebrow text-center">IV · From Customers</div>
+          <div data-reveal className="eyebrow text-center">From Customers</div>
           <div className="mt-10 grid md:grid-cols-2 gap-8">
             {[
               { q: "Mike and his crew are always reliable — they ALWAYS take care of anything we ask within a week.", a: 'Google review' },
@@ -204,11 +210,10 @@ export default function Page() {
 
       {/* ── Trust signals ── */}
       <section className="bg-cream">
-        <div className="max-w-6xl mx-auto px-6 py-14 grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="max-w-6xl mx-auto px-6 py-14 grid sm:grid-cols-3 gap-6">
           {[
             { n: '27+', l: 'YEARS IN SPRING HILL' },
             { n: 'A+',  l: 'BBB · SINCE 2009' },
-            { n: 'The', l: 'RADO BROTHERS' },
             { n: 'HOA', l: '& COMMUNITY' },
           ].map((s, i) => (
             <div key={s.l} data-reveal style={{ ['--reveal-delay' as any]: `${i * 90}ms` }}
@@ -224,7 +229,7 @@ export default function Page() {
       <section id="contact" className="bg-forest-900 text-cream">
         <div className="max-w-6xl mx-auto px-6 py-24 grid md:grid-cols-12 gap-12">
           <div className="md:col-span-5">
-            <div data-reveal className="eyebrow !text-terra-300">V · Quote Request</div>
+            <div data-reveal className="eyebrow !text-terra-300">Quote Request</div>
             <h2 data-reveal className="mt-3 font-display font-semibold text-4xl md:text-5xl text-cream leading-tight">
               Tell us about your property.
             </h2>
